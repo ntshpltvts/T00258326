@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class HUmanControl : MonoBehaviour
 {
+    public GameObject snowballCloneTemplate;
     float currentSpeed, walkingSpeed = 2, runningSpeed = 4;
     private float turningSpeed = 180;
     Animator myAnimator;
@@ -38,7 +39,16 @@ public class HUmanControl : MonoBehaviour
         }
          if(Input.GetKey(KeyCode.A)) 
             {
-                transform.Rotate(Vector3.up, turningSpeed * Time.deltaTime);
+                transform.Rotate(Vector3.down, turningSpeed * Time.deltaTime);
             }
+
+        if (Input.GetMouseButton(0))
+        {
+            Instantiate(snowballCloneTemplate);
+            GameObject newGO = Instantiate(snowballCloneTemplate);
+            snowballcontrollscript mySnowball = newGO.GetComponent<snowballcontrollscript>();
+
+            mySnowball.ImThrowingYou(this);
+        }
     }
 }

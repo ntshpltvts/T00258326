@@ -10,7 +10,7 @@ public class snowballcontrollscript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        rb = GetComponent<Rigidbody>();
+        
       
     }
 
@@ -18,6 +18,13 @@ public class snowballcontrollscript : MonoBehaviour
     void Update()
     {
         
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        print("Ouch");
+
+        collision.transform.position += Vector3.up;
     }
 
     internal void ImThrowingYou(HUmanControl hUmanControl)

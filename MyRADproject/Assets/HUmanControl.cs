@@ -42,7 +42,7 @@ public class HUmanControl : MonoBehaviour
                 transform.Rotate(Vector3.down, turningSpeed * Time.deltaTime);
             }
 
-        if (Input.GetMouseButton(0))
+        if (Input.GetMouseButtonDown(0))
         {
             Instantiate(snowballCloneTemplate);
             GameObject newGO = Instantiate(snowballCloneTemplate);
